@@ -1,0 +1,288 @@
+.about-page {
+  padding-top: var(--space-section, 1rem);
+  padding-bottom: 2rem;
+}
+
+/* --- Journey hero (road + skyline feel) --- */
+.journey-hero {
+  position: relative;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  margin-bottom: clamp(1.5rem, 3vw, 2.25rem);
+  background: linear-gradient(165deg, #b8f0eb 0%, #e6f9f7 45%, #f5f9ff 100%);
+  box-shadow: var(--shadow-lg);
+  border: 1px solid rgba(0, 181, 173, 0.2);
+}
+
+.journey-bg {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 20% 30%, rgba(255, 255, 255, 0.55) 0%, transparent 45%),
+    radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.35) 0%, transparent 40%),
+    repeating-radial-gradient(circle at 50% 120%, transparent 0, transparent 32px, rgba(255, 255, 255, 0.12) 32px, rgba(255, 255, 255, 0.12) 33px);
+  pointer-events: none;
+}
+
+.journey-skyline {
+  position: absolute;
+  bottom: 88px;
+  left: 0;
+  right: 0;
+  height: 48px;
+  opacity: 0.2;
+  background: linear-gradient(180deg, transparent, #2e3192);
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 80'%3E%3Cpath fill='%23000' d='M0 80V40l80-20 100 25 90-35 120 40 80-30 100 20 140-45 100 50 90-25 200 35V80z'/%3E%3C/svg%3E")
+    bottom / 100% 100% no-repeat;
+  pointer-events: none;
+}
+
+.journey-title {
+  position: relative;
+  margin: 0;
+  padding: clamp(1rem, 2vw, 1.35rem) clamp(1rem, 2vw, 1.5rem) 0;
+  font-size: clamp(1.35rem, 1.1rem + 1.2vw, 1.85rem);
+  font-weight: 800;
+  color: var(--color-navy);
+  letter-spacing: -0.02em;
+}
+
+.journey-lead {
+  position: relative;
+  margin: 0;
+  padding: 0.5rem clamp(1rem, 2vw, 1.5rem) 0.75rem;
+  color: var(--color-text-muted);
+  font-size: clamp(0.9rem, 0.85rem + 0.25vw, 1rem);
+  max-width: 72ch;
+}
+
+.journey-lead strong {
+  color: var(--color-teal);
+}
+
+.road-wrap {
+  position: relative;
+  padding: 0 0 clamp(0.75rem, 2vw, 1rem);
+}
+
+.road-svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 200px;
+  filter: drop-shadow(0 12px 24px rgba(0, 0, 0, 0.12));
+}
+
+@media (min-width: 768px) {
+  .road-svg {
+    max-height: 240px;
+  }
+}
+
+.milestone-list {
+  position: relative;
+  list-style: none;
+  margin: -2.5rem 0 0;
+  padding: 0 clamp(0.75rem, 2vw, 1.25rem) clamp(1rem, 2vw, 1.5rem);
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.85rem;
+  z-index: 2;
+}
+
+@media (min-width: 720px) {
+  .milestone-list {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.75rem;
+    margin-top: -3rem;
+  }
+}
+
+.milestone {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 0.5rem;
+}
+
+.milestone-ring {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: linear-gradient(145deg, var(--color-navy), #3d42a8);
+  box-shadow:
+    0 0 0 4px rgba(0, 181, 173, 0.55),
+    0 10px 24px rgba(46, 49, 146, 0.35),
+    inset 0 2px 0 rgba(255, 255, 255, 0.15);
+}
+
+.milestone-year {
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: #fff;
+  letter-spacing: 0.02em;
+}
+
+.milestone-text {
+  margin: 0;
+  font-size: clamp(0.78rem, 0.72rem + 0.2vw, 0.88rem);
+  line-height: 1.45;
+  color: var(--color-text);
+  max-width: 32ch;
+}
+
+/* --- Prose sections --- */
+.section {
+  margin-bottom: clamp(1.25rem, 2.5vw, 2rem);
+}
+
+.section-title {
+  margin: 0 0 0.75rem;
+  font-size: var(--fs-h2);
+  font-weight: 800;
+  color: var(--color-teal);
+  letter-spacing: -0.02em;
+}
+
+.prose p {
+  margin: 0 0 1rem;
+  color: var(--color-text-muted);
+}
+
+.prose p:last-child {
+  margin-bottom: 0;
+}
+
+.subhead {
+  margin: 0 0 0.65rem;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--color-navy);
+}
+
+.bullet-list {
+  margin: 0 0 1rem;
+  padding-left: 1.2rem;
+  color: var(--color-text-muted);
+  line-height: 1.65;
+}
+
+.bullet-list li {
+  margin-bottom: 0.35rem;
+}
+
+.value-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+@media (min-width: 768px) {
+  .value-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.card-3d {
+  background: var(--color-surface);
+  border-radius: var(--radius-md);
+  border: 1px solid rgba(46, 49, 146, 0.1);
+  box-shadow: var(--shadow-md), var(--shadow-inset);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+@media (hover: hover) {
+  .card-3d:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-lg), var(--shadow-inset);
+  }
+}
+
+.value-card {
+  padding: clamp(1rem, 2vw, 1.25rem);
+}
+
+.value-title {
+  margin: 0 0 0.5rem;
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: var(--color-navy);
+}
+
+.value-card p {
+  margin: 0;
+  color: var(--color-text-muted);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+/* Stats */
+.stats-strip {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.85rem;
+  margin: clamp(1.25rem, 2.5vw, 2rem) 0;
+}
+
+@media (min-width: 600px) {
+  .stats-strip {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.stat-card {
+  padding: 1.1rem 1rem;
+  text-align: center;
+}
+
+.stat-value {
+  margin: 0;
+  font-size: clamp(1.75rem, 1.4rem + 1.2vw, 2.35rem);
+  font-weight: 800;
+  color: var(--color-navy);
+  line-height: 1.1;
+}
+
+.stat-label {
+  margin: 0.35rem 0 0;
+  font-weight: 800;
+  font-size: 0.92rem;
+  color: var(--color-teal);
+}
+
+.stat-sub {
+  margin: 0.35rem 0 0;
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+  line-height: 1.4;
+}
+
+.contact-banner {
+  padding: clamp(1rem, 2vw, 1.35rem);
+}
+
+.contact-banner .section-title {
+  margin-bottom: 0.5rem;
+}
+
+.contact-banner p {
+  margin: 0;
+  color: var(--color-text-muted);
+  line-height: 1.65;
+}
+
+.contact-banner a {
+  color: var(--color-teal);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+@media (hover: hover) {
+  .contact-banner a:hover {
+    text-decoration: underline;
+  }
+}

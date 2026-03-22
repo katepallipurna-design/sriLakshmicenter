@@ -1,0 +1,55 @@
+<div class="page-generic">
+  <section class="head card-3d">
+    <h1>{{ content().title }}</h1>
+    <p class="sub">{{ content().desc }} · {{ brand.name }}</p>
+  </section>
+
+  <section class="body">
+    <article class="content-card card-3d">
+      <h3>Service highlights</h3>
+      <ul>
+        <li>NABL-standard processing workflow</li>
+        <li>Fast digital report availability</li>
+        <li>Dedicated support and callback assistance</li>
+      </ul>
+    </article>
+
+    <article class="form-card card-3d">
+      <h3>{{ formTitle() }}</h3>
+      <form [formGroup]="form" (ngSubmit)="submit()">
+        <label class="field">
+          <span class="label">Full name</span>
+          <input type="text" formControlName="name" autocomplete="name" />
+        </label>
+        <label class="field">
+          <span class="label">Phone</span>
+          <input type="tel" formControlName="phone" autocomplete="tel" inputmode="numeric" />
+        </label>
+        <label class="field">
+          <span class="label">Email</span>
+          <input type="email" formControlName="email" autocomplete="email" />
+        </label>
+        <label class="field">
+          <span class="label">Preferred date</span>
+          <input type="text" formControlName="date" placeholder="DD-MM-YYYY" />
+        </label>
+        @if (isPrescriptionPage()) {
+          <label class="field">
+            <span class="label">Prescription file name</span>
+            <input type="text" formControlName="prescription" placeholder="e.g. prescription.jpg" />
+          </label>
+        }
+        <label class="field">
+          <span class="label">Message</span>
+          <textarea rows="4" formControlName="message" placeholder="Your requirement"></textarea>
+        </label>
+        <button type="submit" class="submit-btn tap-target" [disabled]="form.invalid || loading()">
+          {{ loading() ? 'Sending…' : 'Submit' }}
+        </button>
+      </form>
+      @if (success()) {
+        <p class="ok">Request submitted successfully. Reference ID: {{ success() }}</p>
+      }
+    </article>
+  </section>
+</div>

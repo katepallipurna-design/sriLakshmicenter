@@ -1,0 +1,28 @@
+<footer class="site-footer">
+  <div class="cols">
+    <section class="footer-panel">
+      <h4>{{ brand.shortName }}</h4>
+      <p>{{ brand.address }}</p>
+      <p>{{ brand.email }}</p>
+      <p>{{ brand.phone }}</p>
+    </section>
+    <section class="footer-panel">
+      <h4>Quick Links</h4>
+      <p>Services</p>
+      <p>Health Checkups</p>
+      <p>Download Reports</p>
+      <p>Corporate Wellness</p>
+    </section>
+    <section class="footer-panel footer-subscribe">
+      <h4>Subscribe</h4>
+      <form [formGroup]="newsForm" (ngSubmit)="submitted = true">
+        <input type="email" formControlName="email" placeholder="Enter your email" />
+        <button type="submit" [disabled]="newsForm.invalid">Subscribe</button>
+      </form>
+      @if (submitted && newsForm.valid) {
+        <small class="ok">Subscribed successfully.</small>
+      }
+    </section>
+  </div>
+  <div class="copyright">Copyright 2026 {{ brand.name }}. All rights reserved.</div>
+</footer>

@@ -1,0 +1,109 @@
+/* ============================================
+   Srilakshmi Diagnostic — global design tokens
+   Responsive + subtle 3D depth (shadows / layers)
+   ============================================ */
+
+:root {
+  /* Brand */
+  --color-navy: #2e3192;
+  --color-navy-deep: #1f2268;
+  --color-teal: #00b5ad;
+  --color-teal-light: #1dd4cc;
+  --color-accent: #e63946;
+  --color-text: #1a1f3a;
+  --color-text-muted: #5c6488;
+  --color-surface: #ffffff;
+  --color-page: #eef2fb;
+
+  /* 3D depth — layered shadows (soft ambient + tight contact) */
+  --shadow-sm: 0 1px 2px rgba(30, 40, 90, 0.06), 0 2px 8px rgba(30, 40, 90, 0.04);
+  --shadow-md: 0 4px 6px rgba(30, 40, 90, 0.07), 0 12px 28px rgba(46, 49, 146, 0.12);
+  --shadow-lg: 0 8px 16px rgba(30, 40, 90, 0.1), 0 24px 48px rgba(46, 49, 146, 0.14);
+  --shadow-inset: inset 0 1px 0 rgba(255, 255, 255, 0.65);
+
+  --radius-sm: 10px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+
+  --header-h: 0px;
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+  --safe-top: env(safe-area-inset-top, 0px);
+
+  /* Fluid type: mobile → desktop */
+  --fs-body: clamp(0.9375rem, 0.9rem + 0.2vw, 1.0625rem);
+  --fs-h1: clamp(1.5rem, 1.2rem + 1.5vw, 2.35rem);
+  --fs-h2: clamp(1.2rem, 1.05rem + 0.8vw, 1.65rem);
+  --space-section: clamp(1rem, 0.6rem + 2vw, 2rem);
+  /* Side padding: comfortable on phones; tightened on large desktops (see below) */
+  --container-pad: clamp(0.75rem, 0.5rem + 1.5vw, 1.5rem);
+  /* Default (mobile / tablet): full width minus padding */
+  --container-max: 100%;
+}
+
+/* Desktop / large laptop: use almost full width — less empty left/right than a fixed 1200px bar */
+@media (min-width: 1024px) {
+  :root {
+    --container-max: min(100vw - 2rem, 1520px);
+    --container-pad: clamp(0.75rem, 1vw, 1.25rem);
+  }
+}
+
+@media (min-width: 1440px) {
+  :root {
+    --container-max: min(100vw - 3rem, 1680px);
+    --container-pad: 1.25rem;
+  }
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  min-height: 100dvh;
+  font-family: 'Plus Jakarta Sans', 'Segoe UI', system-ui, sans-serif;
+  font-size: var(--fs-body);
+  line-height: 1.55;
+  color: var(--color-text);
+  background:
+    radial-gradient(120% 80% at 100% 0%, rgba(0, 181, 173, 0.08), transparent 50%),
+    radial-gradient(90% 60% at 0% 100%, rgba(46, 49, 146, 0.06), transparent 45%),
+    linear-gradient(180deg, #f4f7fd 0%, var(--color-page) 40%, #e8ecf8 100%);
+  background-attachment: fixed;
+  padding-top: var(--safe-top);
+  padding-bottom: var(--safe-bottom);
+}
+
+/* Touch: comfortable targets on phones (scoped — avoid breaking inline links) */
+@media (hover: none) and (pointer: coarse) {
+  button:not(.fab),
+  .tap-target {
+    min-height: 44px;
+  }
+
+  .menu ul a {
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+  }
+}
+
+/* Focus visibility */
+:focus-visible {
+  outline: 2px solid var(--color-teal);
+  outline-offset: 2px;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}

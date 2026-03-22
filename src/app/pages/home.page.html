@@ -1,0 +1,93 @@
+<div class="page-home">
+  <section class="hero">
+    <div class="hero-content card-3d">
+      <p class="eyebrow">Trusted diagnostics · {{ brand.city }}</p>
+      <h1>Care that feels <span class="accent">closer</span>, reports you can <span class="accent">trust</span></h1>
+      <p class="lead">
+        {{ brand.name }} brings pathology, radiology, and preventive health packages together —
+        with clear reporting and support at every step.
+      </p>
+      <div class="hero-actions">
+        <a routerLink="/book-test" class="btn btn-primary tap-target">Book tests</a>
+        <a routerLink="/buy-health-checkup" class="btn btn-secondary tap-target">Health checkups</a>
+      </div>
+    </div>
+    <aside class="hero-card card-3d">
+      <h3>WhatsApp services</h3>
+      <ul>
+        <li>Book tests</li>
+        <li>Lab reports</li>
+        <li>Call-back</li>
+        <li>Find a centre</li>
+      </ul>
+      <a class="wa-chip tap-target" [href]="'https://wa.me/' + brand.whatsapp.replace(/\D/g, '')" target="_blank" rel="noopener noreferrer">
+        Chat on WhatsApp
+      </a>
+    </aside>
+  </section>
+
+  <section class="section popular" aria-labelledby="popular-title">
+    <div class="section-head">
+      <h2 id="popular-title">Popular tests</h2>
+    </div>
+    <div class="cards">
+      <article class="test-card card-3d">
+        <h4>Fasting plasma glucose</h4>
+        <p class="price">₹120</p>
+        <button type="button" class="btn-book tap-target">Book</button>
+      </article>
+      <article class="test-card card-3d">
+        <h4>Complete blood picture (CBP)</h4>
+        <p class="price">₹390</p>
+        <button type="button" class="btn-book tap-target">Book</button>
+      </article>
+      <article class="test-card card-3d">
+        <h4>Creatinine</h4>
+        <p class="price">₹260</p>
+        <button type="button" class="btn-book tap-target">Book</button>
+      </article>
+    </div>
+  </section>
+
+  <section class="section radiology" aria-labelledby="radio-title">
+    <h2 id="radio-title" class="inline-title">Popular radiology tests</h2>
+    <div class="radio-chips">
+      @for (r of radiology; track r) {
+        <span class="chip tap-target">{{ r }}</span>
+      }
+    </div>
+  </section>
+
+  <section class="section packages" aria-labelledby="pkg-title">
+    <div class="section-head">
+      <h2 id="pkg-title">Our health checkups</h2>
+    </div>
+    <div class="filters" role="tablist" aria-label="Package categories">
+      @for (f of filters; track f.id) {
+        <button
+          type="button"
+          role="tab"
+          class="filter-btn tap-target"
+          [class.active]="activeFilter() === f.id"
+          [attr.aria-selected]="activeFilter() === f.id"
+          (click)="setFilter(f.id)">
+          {{ f.label }}
+        </button>
+      }
+    </div>
+    <div class="grid">
+      @for (p of visiblePackages(); track p.title) {
+        <article class="pkg-card card-3d">
+          <h4>{{ p.title }}</h4>
+          <p class="meta">Parameters covered: <strong>{{ p.params }}</strong></p>
+          <div class="pkg-links">
+            <span>Radiology tests ›</span>
+            <span>Laboratory tests ›</span>
+          </div>
+        </article>
+      }
+    </div>
+  </section>
+
+
+</div>

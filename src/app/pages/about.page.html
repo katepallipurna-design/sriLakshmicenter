@@ -1,0 +1,160 @@
+<div class="about-page">
+  <!-- Journey banner: road-style visual + milestones from 2024 -->
+  <section class="journey-hero" aria-labelledby="journey-heading">
+    <div class="journey-bg" aria-hidden="true"></div>
+    <div class="journey-skyline" aria-hidden="true"></div>
+
+    <h1 id="journey-heading" class="journey-title">Our journey</h1>
+    <p class="journey-lead">
+      <strong>{{ brand.shortName }}</strong> began in <strong>2024</strong> at <strong>Chekkapalli</strong> — with
+      <strong>2+ years</strong> of growing experience, we continue to put patients first.
+    </p>
+
+    <div class="road-wrap">
+      <svg class="road-svg" viewBox="0 0 1000 280" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+        <defs>
+          <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#c5f5f1"/>
+            <stop offset="55%" stop-color="#e8faf9"/>
+            <stop offset="100%" stop-color="#f2f7ff"/>
+          </linearGradient>
+          <linearGradient id="roadSurface" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#2a2a2a"/>
+            <stop offset="100%" stop-color="#0f0f0f"/>
+          </linearGradient>
+        </defs>
+        <rect width="1000" height="280" fill="url(#sky)" rx="20"/>
+        <!-- winding road -->
+        <path
+          class="road-path"
+          d="M -20 200 C 120 160, 220 240, 360 200 S 620 120, 780 185 S 920 210, 1020 175"
+          fill="none"
+          stroke="url(#roadSurface)"
+          stroke-width="42"
+          stroke-linecap="round"/>
+        <path
+          d="M -20 200 C 120 160, 220 240, 360 200 S 620 120, 780 185 S 920 210, 1020 175"
+          fill="none"
+          stroke="#ffffff"
+          stroke-width="3"
+          stroke-dasharray="14 22"
+          opacity="0.35"/>
+      </svg>
+
+      <ol class="milestone-list">
+        @for (m of milestones; track m.year) {
+          <li class="milestone">
+            <span class="milestone-ring">
+              <span class="milestone-year">{{ m.year }}</span>
+            </span>
+            <p class="milestone-text">{{ m.title }}</p>
+          </li>
+        }
+      </ol>
+    </div>
+  </section>
+
+  <section class="section prose" aria-labelledby="care-heading">
+    <h2 id="care-heading" class="section-title">Built on Care, Grown with Trust</h2>
+    <p>
+      From our centre serving <strong>Chekkapalli</strong> and nearby communities, the story of
+      <strong>{{ brand.shortName }}</strong> is shaped not by scale alone, but by successful diagnostic visits,
+      futures protected, and patients comforted — with <strong>over 2 years</strong> of hands-on experience since 2024.
+    </p>
+    <p>
+      We are focused on delivering dependable pathology and radiology support with the same passion and precision that
+      defined us from day one. Our team works every day to make quality diagnostics easier to access for families in
+      and around <strong>Nuzvidu</strong>.
+    </p>
+    <p>
+      While we grow in capability and reputation, our values stay rooted in human connection. We measure success not
+      only in numbers, but in early detections, relieved smiles, and the quiet reassurance that comes from clear answers.
+    </p>
+  </section>
+
+  <section class="section prose" aria-labelledby="firsts-heading">
+    <h2 id="firsts-heading" class="section-title">A Journey of Firsts</h2>
+    <p>
+      Care at <strong>{{ brand.shortName }}</strong> is built on continuous improvement. Over the last
+      <strong>two years</strong>, we have invested in practical, modern diagnostic practices — from structured lab
+      workflows to clear digital reporting — so patients in <strong>Chekkapalli</strong> get timely, trustworthy
+      results.
+    </p>
+    <p>Highlights we continue to strengthen:</p>
+    <ul class="bullet-list">
+      <li>Ultrasound and essential imaging pathways, aligned with clinical need.</li>
+      <li>Quality-driven laboratory testing with careful sample handling.</li>
+      <li>Digital report access and guidance for faster follow-ups with your doctor.</li>
+      <li>Preventive health check-ups designed for real-life schedules.</li>
+    </ul>
+    <p>
+      Each step is guided by the belief that everyone deserves access to dependable healthcare — starting right here in
+      <strong>Chekkapalli</strong>.
+    </p>
+  </section>
+
+  <section class="section prose" aria-labelledby="people-heading">
+    <h2 id="people-heading" class="section-title">Our People, Our Strength</h2>
+    <p>
+      Behind every diagnostic test and every report, there is a person with hopes and questions. At
+      <strong>{{ brand.shortName }}</strong>, we never lose sight of that.
+    </p>
+    <p>
+      Our team brings together experienced technicians, caring front-desk staff, and consulting doctors who review
+      reports with attention and empathy. For us, a result is never “just a number” — it is part of your journey to
+      better health.
+    </p>
+  </section>
+
+  <section class="section prose" aria-labelledby="vm-heading">
+    <h2 id="vm-heading" class="section-title">Vision and Mission</h2>
+    <h3 class="subhead">Technologically advanced and caring medical diagnostics</h3>
+    <p>
+      Better treatment begins with precise and timely diagnosis. We continue to expand our range of tests and imaging
+      support so clinicians and patients get a strong foundation for decisions.
+    </p>
+    <p>
+      Services at <strong>{{ brand.shortName }}</strong> are delivered by trained professionals using reliable
+      equipment and disciplined processes — so reports are accurate, transparent, and easy to understand.
+    </p>
+  </section>
+
+  <section class="section" aria-labelledby="values-heading">
+    <h2 id="values-heading" class="section-title">Our Values</h2>
+    <div class="value-grid">
+      <article class="value-card card-3d">
+        <h3 class="value-title">Easy access, every time</h3>
+        <p>
+          Health comes first. At <strong>{{ brand.shortName }}</strong>, we focus on clear communication, simple booking,
+          and digital report access — designed to reduce stress before, during, and after your visit.
+        </p>
+      </article>
+      <article class="value-card card-3d">
+        <h3 class="value-title">Quality you can trust</h3>
+        <p>
+          Our work is defined by disciplined processes and continuous learning. With <strong>2+ years</strong> of service
+          in <strong>Chekkapalli</strong>, we keep raising the bar for consistency, hygiene, and patient dignity.
+        </p>
+      </article>
+    </div>
+  </section>
+
+  <section class="stats-strip" aria-label="Key facts">
+    @for (s of statHighlights; track s.label) {
+      <article class="stat-card card-3d">
+        <p class="stat-value">{{ s.value }}</p>
+        <p class="stat-label">{{ s.label }}</p>
+        <p class="stat-sub">{{ s.sub }}</p>
+      </article>
+    }
+  </section>
+
+  <section class="section contact-banner card-3d">
+    <h2 class="section-title">Visit us</h2>
+    <p>
+      <strong>{{ brand.name }}</strong><br />
+      {{ brand.address }}<br />
+      Phone: <a [href]="telHref">{{ brand.phone }}</a>
+    </p>
+  </section>
+</div>
