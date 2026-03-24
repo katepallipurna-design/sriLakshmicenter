@@ -269,6 +269,14 @@
   padding: 0.35rem 0;
 }
 
+.mobile-brand {
+  display: none;
+  text-decoration: none;
+  color: #fff;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+}
+
 .menu-toggle {
   display: flex;
   align-items: center;
@@ -426,14 +434,45 @@ ul a.active {
 
 /* Tablet: tighten topbar */
 @media (max-width: 599px) {
-  .right-section {
-    width: 100%;
-    justify-content: space-between;
+  .topbar,
+  .search-row,
+  .cart-btn {
+    display: none;
   }
 
-  .apps {
-    width: 100%;
-    justify-content: center;
+  .menu {
+    margin: 0;
+    padding: 0.45rem 0.5rem;
+    border-radius: 0;
+    box-shadow: 0 4px 14px rgba(46, 49, 146, 0.3);
+  }
+
+  .menu-bar {
+    justify-content: space-between;
+    padding: 0;
+  }
+
+  .mobile-brand {
+    display: inline-flex;
+    align-items: center;
+    height: 40px;
+    padding: 0 0.4rem;
+  }
+
+  .menu-toggle {
+    order: 3;
+    margin-left: auto;
+  }
+
+  ul {
+    margin-top: 0.45rem;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 10px;
+    padding: 0.3rem;
+  }
+
+  ul a {
+    padding: 0.7rem 0.75rem;
   }
 }
 

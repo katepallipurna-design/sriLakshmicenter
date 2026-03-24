@@ -70,8 +70,10 @@
         <span class="menu-label">{{ menuOpen() ? 'Close' : 'Menu' }}</span>
       </button>
 
+      <a class="mobile-brand tap-target" routerLink="/" (click)="menuOpen.set(false)">SriLakshmi</a>
+
       <ul id="main-nav" [class.open]="menuOpen()">
-        <li><a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="menuOpen.set(false)">Home</a></li>
+        <li><a routerLink="/home" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="menuOpen.set(false)">Home</a></li>
         <li><a routerLink="/about" routerLinkActive="active" (click)="menuOpen.set(false)">About Us</a></li>
         <li class="has-sub">
           <a routerLink="/book-test" routerLinkActive="active" (click)="menuOpen.set(false)">Book a Test</a>

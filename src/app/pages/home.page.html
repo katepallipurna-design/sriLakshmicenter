@@ -1,15 +1,33 @@
 <div class="page-home">
   <section class="hero">
     <div class="hero-content card-3d">
-      <p class="eyebrow">Trusted diagnostics · {{ brand.city }}</p>
-      <h1>Care that feels <span class="accent">closer</span>, reports you can <span class="accent">trust</span></h1>
-      <p class="lead">
-        {{ brand.name }} brings pathology, radiology, and preventive health packages together —
-        with clear reporting and support at every step.
-      </p>
-      <div class="hero-actions">
-        <a routerLink="/book-test" class="btn btn-primary tap-target">Book tests</a>
-        <a routerLink="/buy-health-checkup" class="btn btn-secondary tap-target">Health checkups</a>
+      <div class="hero-slider">
+        <img [src]="slides[activeSlide()].image" [alt]="slides[activeSlide()].title" />
+        <div class="overlay"></div>
+      </div>
+      <div class="hero-copy">
+        <p class="eyebrow">Trusted diagnostics · {{ brand.city }}</p>
+        <h1>{{ slides[activeSlide()].title }}</h1>
+        <p class="lead">{{ slides[activeSlide()].description }}</p>
+        <div class="hero-actions">
+          <a routerLink="/book-test" class="btn btn-primary tap-target">Book tests</a>
+          <a routerLink="/buy-health-checkup" class="btn btn-secondary tap-target">Health checkups</a>
+        </div>
+      </div>
+      <div class="slider-controls">
+        <button class="nav-btn tap-target" type="button" (click)="prevSlide()" aria-label="Previous slide">‹</button>
+        <div class="dots">
+          @for (s of slides; track s.title; let i = $index) {
+            <button
+              type="button"
+              class="dot tap-target"
+              [class.active]="activeSlide() === i"
+              (click)="setSlide(i)"
+              [attr.aria-label]="'Go to slide ' + (i + 1)">
+            </button>
+          }
+        </div>
+        <button class="nav-btn tap-target" type="button" (click)="nextSlide()" aria-label="Next slide">›</button>
       </div>
     </div>
     <aside class="hero-card card-3d">
