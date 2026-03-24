@@ -4,7 +4,7 @@ import { AboutPageComponent } from './pages/about.page';
 import { GenericPageComponent } from './pages/generic.page';
 
 export const routes: Routes = [
-  { path: 'home', component: HomePageComponent },
+  { path: '', component: HomePageComponent },
   { path: 'about', component: AboutPageComponent },
   { path: 'book-test', component: GenericPageComponent, data: { pageKey: 'book-test' } },
   { path: 'home-sample-collection', component: GenericPageComponent, data: { pageKey: 'home-sample-collection' } },
